@@ -1,0 +1,45 @@
+repos:
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.11.5
+    hooks:
+      - id: isort
+        args: ["--profile", "black", "--filter-files"]
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: check-yaml
+        args: ["--allow-multiple-documents"]
+      - id: end-of-file-fixer
+        exclude_types:
+          - "csv"
+          - "json"
+      - id: trailing-whitespace
+        exclude_types:
+          - "csv"
+          - "json"
+      - id: check-added-large-files
+      - id: check-merge-conflict
+      - id: detect-private-key
+      - id: check-executables-have-shebangs
+      - id: check-case-conflict
+      - id: check-shebang-scripts-are-executable
+      - id: detect-aws-credentials
+        args: ["--allow-missing-credentials"]
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+  - repo: https://github.com/psf/black
+    rev: 23.7.0
+    hooks:
+      - id: black
+  - repo: https://github.com/pycqa/pylint
+    rev: v3.0.2
+    hooks:
+    - id: pylint
+      verbose: true
+      args:
+        - --fail-under=7
+  - repo: https://github.com/radix-ai/auto-smart-commit
+    rev: v1.0.3
+    hooks:
+      - id: auto-smart-commit
